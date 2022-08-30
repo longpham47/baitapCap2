@@ -193,10 +193,10 @@ function showTypePhone() {
 //push sp khi click add
 function getProductPhone(id) {
     let item = newProducts.find(v => v.id === id)
-    console.log(item.id);
+    // console.log(item.id);
     if (item) {
         let cartItemIndex = cart.data.findIndex(cartItem => cartItem.id === item.id);
-        console.log(cartItemIndex)
+        // console.log(cartItemIndex)
         if (cartItemIndex == -1) {
             // tìm theo id
             // chưa có thì index sẽ rơi vào -1 đẩy vào mảng
@@ -251,7 +251,7 @@ function nutGiam(id) {
     console.log(qProduct.id);
     if (qProduct) {
         let cartItemIndex = cart.data.findIndex(cartItem => cartItem.id === qProduct.id);
-        console.log(cartItemIndex);
+        // console.log(cartItemIndex);
         if (cartItemIndex != -1) {
             if (cart.data[cartItemIndex].quantity > 1) {
                 console.log(cart.data[cartItemIndex])
@@ -276,7 +276,7 @@ function nutTang(id) {
     console.log(qProduct.id);
     if (qProduct) {
         let cartItemIndex = cart.data.findIndex(cartItem => cartItem.id === qProduct.id);
-        console.log(cartItemIndex);
+        // console.log(cartItemIndex);
         if (cartItemIndex != -1) {
             cart.data[cartItemIndex].quantity++;
             cart.quantity++;
@@ -290,10 +290,10 @@ function nutTang(id) {
 function nutXoa(id) {
     //console.log(id)
     let qProduct = newProducts.find(v => v.id === id)
-    console.log(qProduct.id);
+    // console.log(qProduct.id);
     if (qProduct) {
         let cartItemIndex = cart.data.findIndex(cartItem => cartItem.id === qProduct.id);
-        console.log(cartItemIndex);
+        // console.log(cartItemIndex);
         if (cartItemIndex != -1) {
             moneyMin = Number(cart.data[cartItemIndex].price);
             cart.total -= moneyMin;
