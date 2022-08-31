@@ -193,17 +193,15 @@ function showTypePhone() {
 //push sp khi click add
 function getProductPhone(id) {
     let item = newProducts.find(v => v.id === id)
-    // console.log(item.id);
+    
     if (item) {
         let cartItemIndex = cart.data.findIndex(cartItem => cartItem.id === item.id);
-        // console.log(cartItemIndex)
+       
         if (cartItemIndex == -1) {
-            // tìm theo id
-            // chưa có thì index sẽ rơi vào -1 đẩy vào mảng
+            
             cart.data.push(item);
         } else {
-            // đã có trong cart index != -1
-            // lấy sl trong cart tăng lên 1
+           
             cart.data[cartItemIndex].quantity++;
         }
         cart.quantity++;
@@ -243,15 +241,15 @@ function showCart(cart) {
 
 }
 
-//hai nut tang giam
+// tang giam
 
 function nutGiam(id) {
-    //console.log(id)
+  
     let qProduct = newProducts.find(v => v.id === id)
     console.log(qProduct.id);
     if (qProduct) {
         let cartItemIndex = cart.data.findIndex(cartItem => cartItem.id === qProduct.id);
-        // console.log(cartItemIndex);
+       
         if (cartItemIndex != -1) {
             if (cart.data[cartItemIndex].quantity > 1) {
                 console.log(cart.data[cartItemIndex])
@@ -271,7 +269,7 @@ function nutGiam(id) {
 }
 
 function nutTang(id) {
-    //console.log(id)
+   
     let qProduct = newProducts.find(v => v.id === id)
     console.log(qProduct.id);
     if (qProduct) {
@@ -288,12 +286,12 @@ function nutTang(id) {
 }
 
 function nutXoa(id) {
-    //console.log(id)
+ 
     let qProduct = newProducts.find(v => v.id === id)
-    // console.log(qProduct.id);
+   
     if (qProduct) {
         let cartItemIndex = cart.data.findIndex(cartItem => cartItem.id === qProduct.id);
-        // console.log(cartItemIndex);
+      
         if (cartItemIndex != -1) {
             moneyMin = Number(cart.data[cartItemIndex].price);
             cart.total -= moneyMin;
@@ -312,7 +310,7 @@ function showQuantityCart(quantity) {
 }
 
 
-// Trang Invoice
+//  Invoice
 function nonePayCart() {
     document.getElementById("pay").classList.add("none");
 }
@@ -363,7 +361,7 @@ function tatCover(){
     document.querySelector(".cover").style.display = "none"
 }
 
-//Trang thanh toán 
+//tính tiền
 function tatThanhToan() {
     document.getElementById("thanks").classList.add("none");
 
