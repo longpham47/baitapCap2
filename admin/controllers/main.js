@@ -1,6 +1,6 @@
 
 var spService = new SanPhamService();
-var validation = new  Validation();
+var validation = new Validation();
 
 function getProductList() {
     spService.getProductList().then(function (result) {
@@ -43,10 +43,10 @@ function handleFOrm() {
         <button class="btn btn-info" onclick="addProduct()">Add</button>
             
     `;
-    
+
     var formELE = document.querySelectorAll("#myModal .form-control");
     console.log(formELE);
-    
+
     for (var i = 0; i < formELE.length; i++) {
         formELE[i].value = "";
 
@@ -67,7 +67,7 @@ async function addProduct() {
     console.log(sp)
 
     var isValid = true;
-    
+
     isValid &= validation.checkEmpty(name, "tbname", "tên sản phẩm không được để trống");
     isValid &= validation.checkEmpty(price, "tbgia", "giá sản phẩm không được để trống") && validation.checkscore(price, "tbgia", "nhập lại giá sản phẩm bằng số");
     isValid &= validation.checkEmpty(screen, "tbmanhinh", "thông số màng hình không được để trống");
@@ -76,33 +76,29 @@ async function addProduct() {
     isValid &= validation.checkEmpty(img, "tbhinhanh", "vui lòng thêm hình ảnh");
     isValid &= validation.checkEmpty(desc, "tbmota", "thêm mô tả sản phẩm");
     isValid &= validation.checkEmpty(type, "tbthuonghieu", "nhập thương hiệu sản phẩm");
-    
-    if(isValid){
+
+    if (isValid) {
         try {
-    
+
             var response = await fetch('https://630a58a0324991003284a47f.mockapi.io/bainhom',
-            {
-                method: 'POST', 
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(sp),
-            });
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(sp),
+                });
             console.log(response)
             var data = await response.json();
             console.log(data)
             document.querySelector("#myModal .close").click();
-                    getProductList();
-          } catch (error) {
-            
-            console.log(error)
-            
-          }
-    }
-  
-  
-  
+            getProductList();
+        } catch (error) {
 
+            console.log(error)
+
+        }
+    }
 }
 
 
@@ -147,7 +143,7 @@ function getProductDele(id) {
 }
 
 function updateProduct(id) {
-   var name = document.querySelector("#TenSP").value;
+    var name = document.querySelector("#TenSP").value;
     var price = document.querySelector("#GiaSP").value;
     var screen = document.querySelector("#manhinhsp").value;
     var backCamera = document.querySelector("#camSauSP").value;

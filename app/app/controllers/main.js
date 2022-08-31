@@ -63,7 +63,7 @@ function showProductTable(arrayProduct) {
 function showShop() {
     var content = ""
     content +=
-    `<div class="content">
+        `<div class="content">
         <div class ="shop-cart">
             <div id="cart-list" >                   
                 <select id="typeProduct" onchange="showTypePhone()">
@@ -353,11 +353,11 @@ function showQuantityCart(quantity) {
 
 
 // Cover
-function hienCover(){
+function hienCover() {
     document.querySelector(".cover").style.display = "block"
 }
 
-function tatCover(){
+function tatCover() {
     document.querySelector(".cover").style.display = "none"
 }
 
